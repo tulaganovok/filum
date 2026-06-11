@@ -2,6 +2,7 @@ import { HeadContent, Scripts, createRootRouteWithContext } from '@tanstack/reac
 import appCss from '../styles.css?url'
 import type { QueryClient } from '@tanstack/react-query'
 import { Toaster } from '#/components/ui/sonner'
+
 import NotFoundComponent from '#/components/shared/not-found'
 
 interface MyRouterContext {
