@@ -1,3 +1,5 @@
+import '#/lib/polyfills'
+
 import { PDFParse } from 'pdf-parse'
 import { createServerFn } from '@tanstack/react-start'
 import {
