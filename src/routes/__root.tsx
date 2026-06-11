@@ -20,6 +20,10 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
         name: 'viewport',
         content: 'width=device-width, initial-scale=1',
       },
+      { property: 'og:title', content: 'Filum' },
+      { property: 'og:description', content: 'Your file management system' },
+      { property: 'og:image', content: '/ogi.png' },
+      { property: 'og:type', content: 'website' },
       {
         title: 'Filum',
       },
