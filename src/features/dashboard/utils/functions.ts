@@ -18,6 +18,7 @@ import { file } from '#/db/schema'
 import { openai } from '#/lib/open-ai'
 import { and, count, desc, eq, ilike } from 'drizzle-orm'
 import { utapi } from '#/lib/uploadthing'
+import { notFound } from '@tanstack/react-router'
 
 export const extractPdfContentFn = createServerFn({
   method: 'POST',
@@ -222,6 +223,8 @@ export const getUserFileByIdFn = createServerFn({ method: 'GET' })
       .select()
       .from(file)
       .where(and(eq(file.id, data.id), eq(file.userId, context.session.user.id)))
+
+    if (!selectedFile) throw notFound()
 
     return selectedFile
   })
