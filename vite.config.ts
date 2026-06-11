@@ -18,6 +18,9 @@ const config = defineConfig({
     viteReact(),
     babel({ presets: [reactCompilerPreset()] }),
   ],
+  optimizeDeps: {
+    exclude: ['pdf-parse'],
+  },
 })
 
 export default config
