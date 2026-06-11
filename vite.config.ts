@@ -9,6 +9,15 @@ import tailwindcss from '@tailwindcss/vite'
 import { nitro } from 'nitro/vite'
 
 const config = defineConfig({
+  build: {
+    rollupOptions: {
+      output: {
+        // Ensures chunks don't get stale names
+        chunkFileNames: 'assets/[name]-[hash].js',
+        entryFileNames: 'assets/[name]-[hash].js',
+      },
+    },
+  },
   resolve: { tsconfigPaths: true },
   plugins: [
     devtools(),
