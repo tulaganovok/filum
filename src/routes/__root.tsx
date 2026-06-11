@@ -13,27 +13,15 @@ interface MyRouterContext {
 export const Route = createRootRouteWithContext<MyRouterContext>()({
   head: () => ({
     meta: [
-      {
-        charSet: 'utf-8',
-      },
-      {
-        name: 'viewport',
-        content: 'width=device-width, initial-scale=1',
-      },
+      { charSet: 'utf-8' },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { property: 'og:title', content: 'Filum' },
       { property: 'og:description', content: 'Your file management system' },
       { property: 'og:image', content: '/ogi.png' },
       { property: 'og:type', content: 'website' },
-      {
-        title: 'Filum',
-      },
+      { title: 'Filum' },
     ],
-    links: [
-      {
-        rel: 'stylesheet',
-        href: appCss,
-      },
-    ],
+    links: [{ rel: 'stylesheet', href: appCss }],
   }),
   shellComponent: RootDocument,
   notFoundComponent: NotFoundComponent,
