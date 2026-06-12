@@ -1,6 +1,6 @@
 import '#/lib/polyfills'
 
-import { PDFParse } from 'pdf-parse'
+import { extractText } from 'unpdf'
 import { createServerFn } from '@tanstack/react-start'
 import {
   deleteStoredFileSchema,
@@ -27,9 +27,10 @@ export const extractPdfContentFn = createServerFn({
 })
   .validator(fileSchema)
   .handler(async ({ data: { url } }) => {
-    const parser = new PDFParse({ url })
-    const pdf = await parser.getText()
-    return { content: pdf.text }
+    const response = await fetch(url)
+    const buffer = await response.arrayBuffer()
+    const { text } = await extractText(new Uint8Array(buffer), { mergePages: true })
+    return { content: text }
   })
 
 export const extractDocContentFn = createServerFn({
