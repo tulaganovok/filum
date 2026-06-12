@@ -21,7 +21,7 @@ export default function NotFoundComponent() {
         </EmptyHeader>
         <EmptyContent>
           <Button size={'sm'} asChild>
-            <Link to='/'>
+            <Link to={'/files'}>
               <ArrowLeft /> Back to Home page
             </Link>
           </Button>
